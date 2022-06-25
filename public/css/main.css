@@ -1,0 +1,315 @@
+a {
+  text-decoration: none;
+}
+
+.btn {
+  padding: 7px 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  background-color: var(--blue);
+  color: #fff;
+  font-weight: 200;
+  border: 1px var(--blue) solid;
+  border-radius: 5px;
+}
+
+body {
+  background-color: var(--dark-bg);
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+header {
+  padding: 7px 0;
+  background-color: var(--gray-dark);
+}
+
+header .container {
+  justify-content: space-between;
+}
+
+.branding {
+  padding: 0 5px;
+  background-color: transparent;
+  width: 50%;
+}
+
+.logo {
+  width: 35px;
+  height: 35px;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.brand h2 {
+  margin-left: 20px;
+  color: var(--blue);
+}
+
+header li {
+  list-style: none;
+  display: inline;
+  padding-left: 17px;
+}
+
+header a {
+  color: hsla(0, 0%, 100%, 0.5);
+}
+
+/* LANDING */
+.landing {
+  height: 90vh;
+  margin: 0 auto;
+}
+
+.case {
+  margin: 0 auto;
+  justify-content: space-between;
+  padding: 70px 0;
+}
+
+.landing-text {
+  width: 40%;
+}
+.landing-img {
+  width: 40%;
+}
+
+.landing-text h3 {
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1.1;
+  word-spacing: 3px;
+  font-weight: 200;
+}
+
+.landing-text p {
+  color: #fff;
+  word-spacing: 2px;
+  margin-top: 7px;
+}
+
+.land-link {
+  margin-top: 30px;
+}
+
+.land-link a {
+  font-size: 17px;
+  margin-right: 10px;
+}
+
+.landing-img img {
+  width: 100%;
+}
+
+/* CRYPTO PRICES */
+.crypto-prices {
+  background-color: #f4f4f4;
+}
+
+.crypto-prices .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.crypto-prices .head,
+.crypto-prices .body {
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.h1-img {
+  width: 10%;
+}
+
+.head .h1 {
+  width: 33.3%;
+  color: #343a40;
+}
+
+.body .h2 {
+  width: 33.3%;
+}
+
+.item {
+  margin: 20px auto;
+}
+
+.item .imgs {
+  width: 35px;
+  height: 35px;
+  margin-right: 20px;
+}
+
+.item .imgs img {
+  width: 100%;
+  height: 100%;
+}
+
+.item h2 {
+  padding: 10px;
+  font-size: 12px;
+  text-align: center;
+}
+
+#symb h2,
+#cp h2 {
+  padding: 10px 0;
+  margin: 21px 0;
+  color: #6c757d;
+  font-size: 12px;
+}
+
+.h2 {
+  flex: 1;
+}
+
+/* ABOUT */
+.about {
+  position: relative;
+}
+
+.about-image {
+  background: url("../imgs/about-image.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.about .container {
+  text-align: center;
+  padding: 50px 0;
+  color: #fff;
+}
+
+.about-head {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.about-body {
+  margin: 10px 0;
+}
+
+.about-main {
+  justify-content: space-between;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.abt {
+  flex: 1;
+  padding: 20px 45px;
+}
+
+.abt-img {
+  width: 55px;
+  height: 50px;
+  background-color: rgba(0, 123, 255, 0.7);
+  border: 1px solid var(--blue);
+  border-radius: 37px;
+  margin: 12px auto;
+}
+
+.abt-img i {
+  font-size: 19px;
+  align-self: center;
+  margin: 0 auto;
+}
+
+.abt h3 {
+  font-size: 16px;
+  font-weight: 200;
+  color: var(--blue);
+  margin: 5px 0;
+}
+
+.abt-text {
+  font-size: 14px;
+  font-weight: 100;
+  margin: 5px;
+}
+
+/* MIN FOOT */
+.min-foot .container {
+  padding: 65px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.min-head {
+  margin: 17px 0;
+}
+
+.min-head h3 {
+  font-size: 27px;
+  padding: 10px 0;
+}
+
+.min-head a {
+  font-size: 18px;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.min-body {
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.min-body li {
+  list-style: none;
+  padding: 5px 0;
+}
+
+.min-body h4 {
+  font-size: 20px;
+  font-weight: 100;
+  padding: 17px 0;
+}
+
+.min-body a {
+  font-size: 16px;
+  color: #ccc;
+  font-weight: 100;
+}
+
+.min-body a:hover {
+  color: var(--blue);
+}
+
+/* FOOTER */
+
+footer {
+  padding: 10px;
+  text-align: center;
+  color: var(--gray);
+  background-color: var(--gray-dark);
+  font-size: 17px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
