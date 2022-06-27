@@ -1,34 +1,39 @@
 <header id="header">
-    <div class="container flex">
+  <div class="container flex">
     <div class="branding flex">
       <div class="brand">
         <a href="/" class="flex">
-          <div class="logo"><img src="/public/imgs/logo.png" alt="" /></div>
-          <h2>SrongVest</h2></a>
+          {{!-- <div class="logo"><img src="/public/imgs/logo.png" alt="" /></div> --}}
+          <h1>SrongVest</h1></a>
       </div>
       <div class="nav">
         <ul>
-          <li><a href="">Trade</a></li>
-          <li><a href="">Apply to List</a></li>
-          <li><a href="">Referral</a></li>
+          <li><a href="/users/login">Login</a></li>
+          <li><a href="/users/register">Register</a></li>
         </ul>
       </div>
     </div>
     <div class="nav">
       <li>
-        <a href=""
-          ><i class="far fa-question-circle fa-1x"></i> Help
-          <i class="fas fa-angle-down fa-1x"></i
-        ></a>
+        <a href="#faqs"><i class="far fa-question-circle fa-1x"></i> FAQs</a>
       </li>
       <li>
-        <a href=""
-          ><i class="fas fa-info-circle fa-1x"></i> More
-          <i class="fas fa-angle-down fa-1x"></i
-        ></a>
+        <a href="#about"><i class="fas fa-info-circle fa-1x"></i> About</a>
       </li>
       <!-- <li><a href="users/register">Sign up</a></li>
       <li><a href="users/login">Login</a></li> -->
+    </div>
+    <div class="mobile-menu">
+      <i id="close-menu" class="fa fa-bars" aria-hidden="true"></i>
+      <i id="open-menu" class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="mobile" id="mobile">
+      <ul>
+          <li><a href="/users/login">Login</a></li>
+          <li><a href="/users/register">Register</a></li>
+          <li><a href="#faqs" id="faq-link"><i class="far fa-question-circle fa-1x"></i> FAQs</a></li>
+          <li><a href="#about" id="about-link"><i class="fas fa-info-circle fa-1x"></i> About</a></li>
+        </ul>
     </div>
   </div>
 </header>
