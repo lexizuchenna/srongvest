@@ -348,11 +348,12 @@ footer .flex {
 
 /* Mobile */
 @media only screen and (max-width: 600px) {
-  .nav, .landing-img {
+  .nav, .landing-img, #open-menu{
     display: none;
   }
 
   .mobile {
+    display: block;
     top: 0;
     left: 0;
     bottom: 0;
@@ -380,6 +381,7 @@ footer .flex {
 
   .mobile-menu {
     margin-right: 15px;
+    display: block;
   }
 
   .mobile-menu i {
