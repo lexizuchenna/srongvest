@@ -57,6 +57,10 @@ header a {
   color: hsla(0, 0%, 100%, 0.5);
 }
 
+.mobile, .mobile-menu {
+  display: none;
+}
+
 /* LANDING */
 .landing {
   height: 93vh;
@@ -408,6 +412,10 @@ footer .flex {
 
   .min-foot .first-child{
     margin-bottom: 20px;
+  }
+
+  td, th {
+    font-size: 12px;
   }
 
 }
