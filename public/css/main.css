@@ -346,6 +346,11 @@ footer .flex {
   justify-content: space-between;
 }
 
+.form {
+  background-color: var(--light);
+  height: 90vh;
+}
+
 /* Mobile */
 @media only screen and (max-width: 600px) {
   .nav, .landing-img, #open-menu{

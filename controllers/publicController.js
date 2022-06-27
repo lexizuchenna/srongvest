@@ -1,12 +1,11 @@
 const viewHome = async (req, res) => {
-
     res.render('public/home');
 }
 
-const viewAbout = (req, res) => { 
-    res.render('public/about')
+const viewRegister = (req, res) => {
+    res.render('public/register')
 }
 
 module.exports = {
-    viewHome, viewAbout
+    viewHome, viewRegister
 } 

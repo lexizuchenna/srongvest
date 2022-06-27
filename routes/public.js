@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const {viewHome, viewAbout} = require('../controllers/publicController')
+const {viewHome,  viewRegister} = require('../controllers/publicController')
 
 
 router.get('/', viewHome)
-router.get('/about', viewAbout)
+router.get('/users/register', viewRegister)
 
 module.exports = router
