@@ -338,7 +338,7 @@ td h5 {
 /* FOOTER */
 
 footer {
-  padding: 10px 0;
+  padding: 10px 0 5px 10px;
   color: var(--light);
 }
 
