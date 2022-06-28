@@ -1,0 +1,28 @@
+{{> _header}}
+<section class="form">
+    <div class="container form-container">
+        <h2>Sign in to SrongVest</h2>
+        <form action="/users/login" method="POST">
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="password" name="password">
+            </div>
+            <div class="form-group button">
+                <button class="btn btn-block">Login</button>
+            </div>
+        </form>
+        <hr>	
+        <p style="font-size: 15px; background-color: #fff; width: 25px; margin: 0 auto; margin-top: -11px; ">OR</p>
+        <div class="form-group button">
+            <a href="" class="btn btn-block" style="margin-bottom: 40px;">Login with Google</a>
+        </div>
+
+        <p>Dont have an account? <a href="/users/register">Register</a></p>
+    </div>
+
+</section>
+{{> _footer}}
