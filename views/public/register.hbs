@@ -2,14 +2,22 @@
 <section class="form">
     <div class="container form-container">
         <h2>Sign up to SrongVest</h2>
-        <form action="/users/login" method="POST">
+        <form action="/users/register" method="POST">
             <div class="form-group">
                 <label for="First name">First Name</label>
-                <input type="text" name="firstname">
+                <input type="text" name="firstName">
+            </div>
+            <div class="form-group">
+                {{#each errors}}
+                    <p>{{this.msg}}</p>
+                {{/each}}
+                {{#each ers}}
+                    <p>{{this.msg}}</p>
+                {{/each}}
             </div>
             <div class="form-group">
                 <label for="Last name">Last Name</label>
-                <input type="text" name="lastname">
+                <input type="text" name="lastName">
             </div>
             <div class="form-group">
                 <label for="Email">Email</label>
@@ -24,11 +32,11 @@
                 <input type="password" name="password2">
             </div>
             <div class="">
-                <input type="checkbox" name="check">
+                <input type="checkbox" name="agree">
                 <span>I agree to SrongVest <a href="">Terms and Conditions</a></span>
             </div>
             <div class="form-group button">
-                <button class="btn btn-block">Create Account</button>
+                <button type="submit" value="sumbit" class="btn btn-block">Create Account</button>
             </div>
         </form>
         <hr>	

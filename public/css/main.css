@@ -468,4 +468,8 @@ footer .flex {
     font-size: 12px;
   }
 
+  .form-container {
+    padding: inherit 15px;
+  }
+
 }

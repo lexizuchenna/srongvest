@@ -1,11 +1,18 @@
 const express = require("express");
-const path = require('path')
+const path = require("path");
+const passport = require("passport");
 const dotenv = require("dotenv");
-const {engine } = require("express-handlebars");
+const session = require('express-session')
+const MongoStore = require('connect-mongo')
+const { engine } = require("express-handlebars");
+const connectDB = require("./config/db");
 
 dotenv.config();
 
 const app = express();
+
+require("./config/LocalPassport")(passport);
+connectDB();
 
 app.use(express.urlencoded({ extended: false }));
 
@@ -17,11 +24,27 @@ app.engine(
   })
 );
 
-app.set('view engine', '.hbs')
+app.set("view engine", ".hbs");
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, "public")));
 
-app.use('/', require('./routes/public'))
+//Express Session
+app.use(
+  session({
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+    }),
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use("/", require("./routes/public"));
+app.use("/users", require("./routes/users"));
 app.listen(
   process.env.PORT,
   console.log(`App started on port ${process.env.PORT}`)
