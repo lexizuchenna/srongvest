@@ -1,72 +1,11 @@
-a {
-  text-decoration: none;
-}
 
-.btn {
-  padding: 7px 25px;
-  color: #fff;
-  font-weight: 400;
-  font-size: 17px;
-  background-color: var(--blue);
-  border: 1px var(--blue) solid;
-  cursor: pointer;
-}
-
-.btn-block {
-  width: 100%;
-  display: block;
-  text-align: center;
-}
 
 body {
   background-color: var(--dark-bg);
   font-size: 14px;
 }
 
-header {
-  padding: 7px 0;
-  background-color: var(--gray-dark);
-}
 
-header .container {
-  justify-content: space-between;
-}
-
-.branding {
-  padding: 0 5px;
-  background-color: transparent;
-  width: 50%;
-}
-
-.logo {
-  width: 35px;
-  height: 35px;
-}
-
-.logo img {
-  width: 100%;
-  height: 100%;
-}
-
-.brand h1 {
-  margin-left: 20px;
-  color: var(--primary-color);
-  font-weight: 700;
-}
-
-header li {
-  list-style: none;
-  display: inline;
-  padding-left: 17px;
-}
-
-header a {
-  color: hsla(0, 0%, 100%, 0.5);
-}
-
-.mobile, .mobile-menu {
-  display: none;
-}
 
 /* LANDING */
 .landing {
@@ -316,31 +255,6 @@ td h5 {
   color: #fff;
 }
 
-.min-body {
-  justify-content: space-around;
-  align-items: flex-start;
-}
-
-.min-body li {
-  list-style: none;
-  padding: 5px 0;
-}
-
-.min-body h4 {
-  font-size: 20px;
-  font-weight: 100;
-  padding: 17px 0;
-}
-
-.min-body a {
-  font-size: 16px;
-  color: #ccc;
-  font-weight: 100;
-}
-
-.min-body a:hover {
-  color: var(--blue);
-}
 
 .form-container {
   max-width: 450px;

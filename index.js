@@ -45,6 +45,7 @@ app.use(passport.session());
 
 app.use("/", require("./routes/public"));
 app.use("/users", require("./routes/users"));
+app.use("/users", require("./routes/dashboard"));
 app.listen(
   process.env.PORT,
   console.log(`App started on port ${process.env.PORT}`)

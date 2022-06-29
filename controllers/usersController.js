@@ -1,8 +1,12 @@
-const Users = require("../models/Users");
 const bcrypt = require("bcryptjs");
-const passport = require('passport');
-const nodemailer = require('nodemailer');
-const { getMaxListeners } = require("../models/Users");
+const passport = require("passport");
+const nodemailer = require("nodemailer");
+
+const Users = require("../models/Users");
+const Ref = require("../models/Referral");
+const {emailText} = require('../constants/email')
+
+// Register
 const register = async (req, res) => {
   let useremail = await Users.findOne({ email: req.body.email });
   let ers = [];
@@ -23,24 +27,38 @@ const register = async (req, res) => {
   });
 
   newUser.save();
+
+  // Referral
+  if(req.body.ref) {
+    const Referral = await Ref.create({
+    refName: req.body.firstName,
+    refemail: req.body.refemail,
+    })
+    Referral.save()
+  }
   res.redirect("/users/login");
 
+  // Nodemailer
+
   let transporter = nodemailer.createTransport({
-    host: 'smtp.zoho.com',
+    host: process.env.HOST,
     port: 465,
     secure: true,
     auth: {
-      user: 'lexizuchenna488@zoho.com',
-      pass: 'Spech!al123'
-    }
-  })
+      user: process.env.USER,
+      pass: process.env.PASS,
+    },
+  });
 
   await transporter.sendMail({
-    from: 'lexizuchenna488@zoho.com',
+    from: '"SrongVest" <lexizuchenna488@zoho.com>',
+    subject: "Welcome to SrongVest",
     to: req.body.email,
-    text: 'Welcome to SrongVest'
-  })
+    html: emailText(req.body.firstName, req.body.lastName),
+  });
 };
+
+//Login
 const login = async (req, res, next) => {
   passport.authenticate("local", {
     successRedirect: "/users/dashboard",
@@ -48,7 +66,14 @@ const login = async (req, res, next) => {
   })(req, res, next);
 };
 
+// Logout
+const logout  = async (req, res) => {
+  req.logout();
+  res.redirect("/users/login");
+};
+
 module.exports = {
   register,
   login,
+  logout
 };

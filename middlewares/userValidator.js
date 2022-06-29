@@ -1,6 +1,5 @@
 const { check, validationResult } = require("express-validator");
 
-
 exports.validateUser = [
   check("firstName").trim().notEmpty().withMessage("Enter First Name"),
   check("lastName").trim().notEmpty().withMessage("Enter Last Name"),
@@ -8,7 +7,8 @@ exports.validateUser = [
     .isEmail()
     .withMessage("Invalid Email")
     .notEmpty()
-    .withMessage("Enter Email"),
+    .withMessage("Enter Email")
+    .trim(),
   check("password")
     .notEmpty()
     .withMessage("Enter Password")
@@ -21,18 +21,29 @@ exports.validateUser = [
     )
     .isLength({ min: 8 })
     .withMessage("Paswword must be up to eight"),
-  
+
   check("password2").custom(async (password2, { req }) => {
     const password = req.body.password;
     if (password !== password2) {
       throw new Error("Password doesnt not match");
     }
 
-    return true
-  }), check('agree').custom(async (agree, {req}) => {
-      if(!agree) {
-        throw new Error('You have to agree to our terms and conditions')
+    return true;
+  }),
+  check("refemail")
+    .trim()
+    .custom(async (refemail, { req }) => {
+      const email = req.body.email;
+      if (refemail === email) {
+        throw new Error("Referral cannot include your email");
       }
+
+      return true;
+    }),
+  check("agree").custom(async (agree, { req }) => {
+    if (!agree) {
+      throw new Error("You have to agree to our terms and conditions");
+    }
   }),
   (req, res, next) => {
     let errors = validationResult(req);
