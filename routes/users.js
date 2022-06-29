@@ -7,6 +7,6 @@ const {login,  register, logout} = require('../controllers/usersController')
 
 router.post('/register', validateUser, register)
 router.post('/login', login)
-router.post('/logout', logout)
+router.get('/logout', logout)
 
 module.exports = router

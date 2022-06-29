@@ -67,8 +67,10 @@ const login = async (req, res, next) => {
 };
 
 // Logout
-const logout  = async (req, res) => {
-  req.logout();
+const logout  = async (req, res, next) => {
+  req.logout((err) => {
+    if(err) return next(err)
+  });
   res.redirect("/users/login");
 };
 

@@ -1,1 +1,241 @@
-{{> _userheader}}
+<header class="header" data-header>
+  <div class="container">
+    <h1>
+      <a href="#" class="logo">SrongVest</a>
+    </h1>
+    <button
+      class="menu-toggle-btn icon-box"
+      data-menu-toggle-btn
+      aria-label="Toggle Menu"
+    >
+      <span class="material-symbols-rounded icon">menu</span>
+    </button>
+
+    <nav class="navbar">
+      <div class="container">
+        <ul class="navbar-list">
+          <li>
+            <a href="/users/dashboard" class="navbar-link active icon-box">
+              <span class="material-symbols-rounded icon">grid_view</span>
+
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="/users/fund" class="navbar-link icon-box">
+              <span class="material-symbols-rounded icon">folder</span>
+
+              <span>Fund</span>
+            </a>
+          </li>
+          <li>
+            <a href="/users/withdraw" class="navbar-link icon-box">
+              <span class="material-symbols-rounded icon">list</span>
+
+              <span>Withdraw</span>
+            </a>
+          </li>
+          <li>
+            <a href="/users/referral" class="navbar-link icon-box">
+              <span class="material-symbols-rounded icon">bar_chart</span>
+
+              <span>Referral</span>
+            </a>
+          </li>
+          <li>
+            <a href="/users/profile" class="navbar-link icon-box">
+              <span class="material-symbols-rounded icon">settings</span>
+
+              <span>Profile</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/users/setting" class="navbar-link icon-box">
+              <span class="material-symbols-rounded icon">settings</span>
+
+              <span>Settings</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <ul class="user-action-list">
+
+          <li>
+            <a href="#" class="header-profile">
+              <div>
+                <p class="profile-title">Alexander</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/users/logout" class="header-profile">
+              <div>
+                <p class="profile-title">logout</p>
+              </div>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+  <article class="container article">
+
+    <h2 class="h2 article-title">Hi Elizabeth</h2>
+
+    <p class="article-subtitle">Welcome to SrongVest!</p>
+
+    <!-- 
+        - #HOME
+      -->
+
+    <section class="home">
+
+      <div class="card profile-card">
+        <div class="profile-card-wrapper">
+          <div>
+            <p class="card-title">Active Investment</p>
+          </div>
+
+        </div>
+
+        <div class="divider card-divider"></div>
+
+        <ul class="progress-list">
+
+          <li class="progress-item">
+
+            <div class="progress-label">
+              <p class="progress-title">Plan</p>
+            </div>
+
+            <div class="progress-label">
+              <p>Gold</p>
+            </div>
+
+          </li>
+
+          <li class="progress-item">
+
+            <div class="progress-label">
+              <p class="progress-title">Amount</p>
+            </div>
+
+            <div class="progress-label">
+              <p>$ 10,000</p>
+            </div>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="card-wrapper">
+
+        <div class="card task-card">
+
+          <div class="card-icon icon-box green">
+            <span class="material-symbols-rounded icon">task_alt</span>
+          </div>
+
+          <div>
+            <data class="card-data" value="21">$ 21,000</data>
+
+            <p class="card-text">Total Amount Withdrawn</p>
+          </div>
+
+        </div>
+
+        <div class="card task-card">
+
+          <div class="card-icon icon-box blue">
+            <span class="material-symbols-rounded icon">task_alt</span>
+          </div>
+
+          <div>
+            <data class="card-data" value="21">21</data>
+
+            <p class="card-text">Total Referrals</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="card revenue-card">
+
+        <button class="card-menu-btn icon-box" aria-label="More" data-menu-btn>
+          <span class="material-symbols-rounded icon">more_horiz</span>
+        </button>
+
+        <ul class="ctx-menu">
+          <li class="ctx-item">
+            <button class="ctx-menu-btn icon-box">
+              <span
+                class="material-symbols-rounded icon"
+                aria-hidden="true"
+              >cached</span>
+
+              <span class="ctx-menu-text">Refresh</span>
+            </button>
+          </li>
+        </ul>
+
+        <p class="card-title">Revenue</p>
+        <data class="card-price" value="2100">$2,100</data>
+        <p class="card-text">Last Week</p>
+        <div class="divider card-divider"></div>
+
+        <ul class="revenue-list">
+          <li class="revenue-item icon-box">
+            <span class="material-symbols-rounded icon green">trending_up</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 
+        - #TASKS
+      -->
+
+    <section class="tasks">
+
+      <div class="section-title-wrapper">
+        <h2 class="section-title">Account History</h2>
+      </div>
+
+      <ul class="tasks-list">
+
+        <li class="tasks-item">
+          <div class="card task-card">
+
+            <div class="card-input">
+              <label for="task-1" class="task-label">
+                Draft the new contract document for sales team
+              </label>
+            </div>
+
+            <div class="card-badge cyan radius-pill">Today 10pm</div>
+            <ul class="card-meta-list">
+              <li>
+                <div class="meta-box icon-box">
+                  <data value="21">21</data>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+    </section>
+
+  </article>
+</main>
