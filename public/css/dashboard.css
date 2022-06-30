@@ -1032,12 +1032,16 @@ body {
   }
 
   .home {
+    grid-template-columns: 1.25fr 0.75fr 1fr;;
+  }
+  .prof-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .home .card-wrapper {
     grid-template-columns: 1fr;
   }
+  
 
   .progress-list {
     align-items: flex-end;
@@ -1131,4 +1135,13 @@ body {
   background-color: var(--blue);
   border: 1px var(--blue) solid;
   cursor: pointer;
+}
+
+.start {
+  align-items: flex-start;
+}
+
+.breaker {
+  word-break: break-all;
+  width: 70%;
 }

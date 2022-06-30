@@ -1,12 +1,21 @@
-const express = require('express')
-const router = express.Router()
-const { viewDashboard, viewFund, viewWithdraw, viewReferral, viewProfile, viewSetting } = require('../controllers/dashBoardController')
+const express = require("express");
+const router = express.Router();
 
-router.get('/dashboard', viewDashboard)
-router.get('/fund', viewFund)
-router.get('/withdraw', viewWithdraw)
-router.get('/referral', viewReferral)
-router.get('/profile', viewProfile)
-router.get('/setting', viewSetting)
+const {
+  viewDashboard,
+  viewFund,
+  viewWithdraw,
+  viewReferral,
+  viewProfile,
+  viewSetting,
+} = require("../controllers/dashBoardController");
+const { isLoggedOut } = require("../middlewares/auth");
 
-module.exports = router
+router.get("/dashboard", isLoggedOut, viewDashboard);
+router.get("/fund", isLoggedOut, viewFund);
+router.get("/withdraw", isLoggedOut, viewWithdraw);
+router.get("/referral", isLoggedOut, viewReferral);
+router.get("/profile", isLoggedOut, viewProfile);
+router.get("/setting", isLoggedOut, viewSetting);
+
+module.exports = router;

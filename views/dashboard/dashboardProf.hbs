@@ -36,14 +36,14 @@
             </a>
           </li>
           <li>
-            <a href="/users/referral" class="navbar-link active icon-box">
+            <a href="/users/referral" class="navbar-link icon-box">
               <span class="material-symbols-rounded icon">bar_chart</span>
 
               <span>Referral</span>
             </a>
           </li>
           <li>
-            <a href="/users/profile" class="navbar-link icon-box">
+            <a href="/users/profile" class="navbar-link active icon-box">
               <span class="material-symbols-rounded icon">settings</span>
 
               <span>Profile</span>
@@ -94,7 +94,7 @@
         - #HOME
       -->
 
-    <section class="home" style="width: 100%;">
+    <section class="home prof-grid" style="width: 100%;">
 
       <div class="card profile-card" style="width: 100%;">
         <div class="profile-card-wrapper">
@@ -120,6 +120,15 @@
                 name="country"
               />
             </div>
+            <div class="form-control" style="width: 100%;">
+              <select name="" id="" style="width: 100%; padding: 10px; outline:none;">
+                <option value="default">Select Plan</option>
+                <option value="">Gold</option>
+                <option value="">Promo</option>
+                <option value="">Silver</option>
+                <option value="">Broze</option>
+              </select>
+            </div>
             <button class="user-button">Submit</button>
           </form>
 
@@ -130,22 +139,37 @@
         <p class="card-title">User Details</p>
         <div class="profile-card-wrapper">
           <ul>
-            <li class="progress-item" style="width: 100%;">
+            <li class="progress-item" style="width: 100%; margin-top:10px;">
               <div class="progress-label">
                 <p class="progress-title">Name:</p>
-                <data class="progress-data">Ukwueze Alexander</data>
+                <data class="progress-data breaker">Ukwueze Alexander</data>
               </div>
             </li>
-            <li class="progress-item" style="width: 100%;">
+            <li class="progress-item" style="width: 100%; margin-top:10px;">
               <div class="progress-label">
                 <p class="progress-title">Phone Number:</p>
-                <data class="progress-data">0902348127912</data>
+                <data class="progress-data breaker">0902348127912</data>
               </div>
             </li>
-            <li class="progress-item" style="width: 100%;">
+            <li class="progress-item" style="width: 100%; margin-top:10px;">
+              <div class="progress-label start">
+                <p class="progress-title">Wallet ID:</p>
+                <data
+                  class="progress-data breaker"
+                  style="word-wrap:break-all;"
+                >0902vvihcyouo7doutdtdy97is57s975s75s9s975sdo6do68sdo7tdo86d7d5s5s86s76sd967d967d96d9d67975d9s5ss7595348127912</data>
+              </div>
+            </li>
+            <li class="progress-item" style="width: 100%; margin-top:10px;">
               <div class="progress-label">
                 <p class="progress-title">Country:</p>
-                <data class="progress-data">Nigeria</data>
+                <data class="progress-data breaker">Nigeria</data>
+              </div>
+            </li>
+            <li class="progress-item" style="width: 100%; margin-top:10px;">
+              <div class="progress-label">
+                <p class="progress-title">Active Plan:</p>
+                <data class="progress-data breaker">Unset</data>
               </div>
             </li>
           </ul>
