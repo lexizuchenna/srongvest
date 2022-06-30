@@ -873,6 +873,18 @@ body {
     margin-bottom: 0;
   }
 
+  .navbar-list,
+  .user-action-list {
+    padding-inline: 0;
+  }
+
+  .navbar-list li {
+    padding-left: 0;
+  }
+  .navbar-list li a {
+    padding: 7px 10px;
+  }
+
   .revenue-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
