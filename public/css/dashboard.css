@@ -1032,7 +1032,7 @@ body {
   }
 
   .home {
-    grid-template-columns: 1.25fr 0.75fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .home .card-wrapper {

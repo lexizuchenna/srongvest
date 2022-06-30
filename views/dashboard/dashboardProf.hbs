@@ -1,0 +1,157 @@
+<header class="header" data-header>
+  <div class="container">
+    <h1>
+      <a href="#" class="logo">SrongVest</a>
+    </h1>
+    <button
+      class="menu-toggle-btn icon-box"
+      data-menu-toggle-btn
+      aria-label="Toggle Menu"
+    >
+      <span class="material-symbols-rounded icon">menu</span>
+    </button>
+
+    <nav class="navbar">
+      <div class="container">
+        <ul class="navbar-list">
+          <li>
+            <a href="/users/dashboard" class="navbar-link icon-box">
+              <span class="material-symbols-rounded icon">grid_view</span>
+
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="/users/fund" class="navbar-link icon-box">
+              <span class="material-symbols-rounded icon">folder</span>
+
+              <span>Fund</span>
+            </a>
+          </li>
+          <li>
+            <a href="/users/withdraw" class="navbar-link icon-box">
+              <span class="material-symbols-rounded icon">list</span>
+
+              <span>Withdraw</span>
+            </a>
+          </li>
+          <li>
+            <a href="/users/referral" class="navbar-link active icon-box">
+              <span class="material-symbols-rounded icon">bar_chart</span>
+
+              <span>Referral</span>
+            </a>
+          </li>
+          <li>
+            <a href="/users/profile" class="navbar-link icon-box">
+              <span class="material-symbols-rounded icon">settings</span>
+
+              <span>Profile</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/users/setting" class="navbar-link icon-box">
+              <span class="material-symbols-rounded icon">settings</span>
+
+              <span>Settings</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <ul class="user-action-list">
+
+          <li>
+            <a href="#" class="header-profile">
+              <div>
+                <p class="profile-title">Alexander</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/users/logout" class="header-profile">
+              <div>
+                <p class="profile-title">logout</p>
+              </div>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+  <article class="container article">
+
+    <p class="article-subtitle">Profile</p>
+
+    <!-- 
+        - #HOME
+      -->
+
+    <section class="home" style="width: 100%;">
+
+      <div class="card profile-card" style="width: 100%;">
+        <div class="profile-card-wrapper">
+          <form class="fund-form" action="" style="width: 100%;">
+            <div class="form-control" style="width: 100%;">
+              <input
+                type="text"
+                placeholder="Enter Phone Number"
+                name="phoneNumber"
+              />
+            </div>
+            <div class="form-control" style="width: 100%;">
+              <input
+                type="text"
+                placeholder="Enter Your Wallet Address e.g. Dogecoin, BNB"
+                name="walletAdd"
+              />
+            </div>
+            <div class="form-control" style="width: 100%;">
+              <input
+                type="text"
+                placeholder="Enter Your Country"
+                name="country"
+              />
+            </div>
+            <button class="user-button">Submit</button>
+          </form>
+
+        </div>
+      </div>
+
+      <div class="card profile-card" style="width: 100%;">
+        <p class="card-title">User Details</p>
+        <div class="profile-card-wrapper">
+          <ul>
+            <li class="progress-item" style="width: 100%;">
+              <div class="progress-label">
+                <p class="progress-title">Name:</p>
+                <data class="progress-data">Ukwueze Alexander</data>
+              </div>
+            </li>
+            <li class="progress-item" style="width: 100%;">
+              <div class="progress-label">
+                <p class="progress-title">Phone Number:</p>
+                <data class="progress-data">0902348127912</data>
+              </div>
+            </li>
+            <li class="progress-item" style="width: 100%;">
+              <div class="progress-label">
+                <p class="progress-title">Country:</p>
+                <data class="progress-data">Nigeria</data>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </section>
+  </article>
+</main>
