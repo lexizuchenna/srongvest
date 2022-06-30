@@ -3,7 +3,8 @@ const Ref = require("../models/Referral");
 const bcrypt = require("bcryptjs");
 
 const viewDashboard = (req, res) => {
-  res.render("dashboard/dashboardHome", { layout: "dash" });
+  const name = req.user.firstName
+  res.render("dashboard/dashboardHome", { layout: "dash", name });
 };
 const viewFund = (req, res) => {
   res.render("dashboard/dashboardFund", { layout: "dash" });
