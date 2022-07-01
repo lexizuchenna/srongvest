@@ -16,35 +16,35 @@
         <ul class="navbar-list">
           <li>
             <a href="/users/dashboard" class="navbar-link icon-box">
-              <span class="material-symbols-rounded icon">grid_view</span>
+              <span class="material-symbols-rounded icon">home</span>
 
               <span>Home</span>
             </a>
           </li>
           <li>
             <a href="/users/fund" class="navbar-link active icon-box">
-              <span class="material-symbols-rounded icon">folder</span>
+              <span class="material-symbols-rounded icon">add_card</span>
 
               <span>Fund</span>
             </a>
           </li>
           <li>
             <a href="/users/withdraw" class="navbar-link icon-box">
-              <span class="material-symbols-rounded icon">list</span>
+              <span class="material-symbols-rounded icon">account_balance</span>
 
               <span>Withdraw</span>
             </a>
           </li>
           <li>
             <a href="/users/referral" class="navbar-link icon-box">
-              <span class="material-symbols-rounded icon">bar_chart</span>
+              <span class="material-symbols-rounded icon">group</span>
 
               <span>Referral</span>
             </a>
           </li>
           <li>
             <a href="/users/profile" class="navbar-link icon-box">
-              <span class="material-symbols-rounded icon">settings</span>
+              <span class="material-symbols-rounded icon">person</span>
 
               <span>Profile</span>
             </a>
@@ -84,13 +84,7 @@
 
 <main>
   <article class="container article">
-
-    <!-- 
-        - #TASKS
-      -->
-
     <section class="tasks">
-
       <div class="section-title-wrapper">
         <h2 class="section-title">Fund</h2>
       </div>
@@ -103,16 +97,20 @@
             <br />
             <br />
             <p>Other payment option are available on request only, contact us if
-              you have to pay using Payeer or Perfect money.
-              info@whales-investment.com</p>
+              you have to pay using Payeer or Perfect money. info@srongvest.com</p>
             <br />
             <br />
-            <form class="fund-form" action="">
+            <form class="fund-form" action="/users/fund" method="POST">
               <div class="form-control">
-                <input type="text" value="plan" readonly />
+                <input
+                  type="text"
+                  id="activePlan"
+                  value={{activePlan}}
+                  readonly
+                />
               </div>
               <div class="form-control">
-                <input type="text" value="amount" readonly />
+                <input type="text" id="amount" value="" readonly />
               </div>
               <div class="form-control">
                 <input
@@ -130,3 +128,5 @@
 
   </article>
 </main>
+
+<script src="/js/fund.js"></script>

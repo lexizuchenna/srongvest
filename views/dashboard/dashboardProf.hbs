@@ -16,35 +16,35 @@
         <ul class="navbar-list">
           <li>
             <a href="/users/dashboard" class="navbar-link icon-box">
-              <span class="material-symbols-rounded icon">grid_view</span>
+              <span class="material-symbols-rounded icon">home</span>
 
               <span>Home</span>
             </a>
           </li>
           <li>
             <a href="/users/fund" class="navbar-link icon-box">
-              <span class="material-symbols-rounded icon">folder</span>
+              <span class="material-symbols-rounded icon">add_card</span>
 
               <span>Fund</span>
             </a>
           </li>
           <li>
             <a href="/users/withdraw" class="navbar-link icon-box">
-              <span class="material-symbols-rounded icon">list</span>
+              <span class="material-symbols-rounded icon">account_balance</span>
 
               <span>Withdraw</span>
             </a>
           </li>
           <li>
             <a href="/users/referral" class="navbar-link icon-box">
-              <span class="material-symbols-rounded icon">bar_chart</span>
+              <span class="material-symbols-rounded icon">group</span>
 
               <span>Referral</span>
             </a>
           </li>
           <li>
             <a href="/users/profile" class="navbar-link active icon-box">
-              <span class="material-symbols-rounded icon">settings</span>
+              <span class="material-symbols-rounded icon">person</span>
 
               <span>Profile</span>
             </a>
@@ -98,7 +98,12 @@
 
       <div class="card profile-card" style="width: 100%;">
         <div class="profile-card-wrapper">
-          <form class="fund-form" action="" style="width: 100%;">
+          <form
+            class="fund-form"
+            action="/users/profile"
+            method="POST"
+            style="width: 100%;"
+          >
             <div class="form-control" style="width: 100%;">
               <input
                 type="text"
@@ -110,7 +115,7 @@
               <input
                 type="text"
                 placeholder="Enter Your Wallet Address e.g. Dogecoin, BNB"
-                name="walletAdd"
+                name="walletId"
               />
             </div>
             <div class="form-control" style="width: 100%;">
@@ -121,12 +126,16 @@
               />
             </div>
             <div class="form-control" style="width: 100%;">
-              <select name="" id="" style="width: 100%; padding: 10px; outline:none;">
-                <option value="default">Select Plan</option>
-                <option value="">Gold</option>
-                <option value="">Promo</option>
-                <option value="">Silver</option>
-                <option value="">Broze</option>
+              <select
+                name="plan"
+                id="plan"
+                style="width: 100%; padding: 10px; outline:none;"
+              >
+                <option value="" name="">Select Plan</option>
+                <option value="Gold" name="Gold">Gold</option>
+                <option value="promo" name="Promo">Promo</option>
+                <option value="Silver" name="Silver">Silver</option>
+                <option value="Bronze" name="Promo">Broze</option>
               </select>
             </div>
             <button class="user-button">Submit</button>
@@ -138,42 +147,84 @@
       <div class="card profile-card" style="width: 100%;">
         <p class="card-title">User Details</p>
         <div class="profile-card-wrapper">
-          <ul>
-            <li class="progress-item" style="width: 100%; margin-top:10px;">
-              <div class="progress-label">
-                <p class="progress-title">Name:</p>
-                <data class="progress-data breaker">Ukwueze Alexander</data>
-              </div>
-            </li>
-            <li class="progress-item" style="width: 100%; margin-top:10px;">
-              <div class="progress-label">
-                <p class="progress-title">Phone Number:</p>
-                <data class="progress-data breaker">0902348127912</data>
-              </div>
-            </li>
-            <li class="progress-item" style="width: 100%; margin-top:10px;">
-              <div class="progress-label start">
-                <p class="progress-title">Wallet ID:</p>
-                <data
-                  class="progress-data breaker"
-                  style="word-wrap:break-all;"
-                >0902vvihcyouo7doutdtdy97is57s975s75s9s975sdo6do68sdo7tdo86d7d5s5s86s76sd967d967d96d9d67975d9s5ss7595348127912</data>
-              </div>
-            </li>
-            <li class="progress-item" style="width: 100%; margin-top:10px;">
-              <div class="progress-label">
-                <p class="progress-title">Country:</p>
-                <data class="progress-data breaker">Nigeria</data>
-              </div>
-            </li>
-            <li class="progress-item" style="width: 100%; margin-top:10px;">
-              <div class="progress-label">
-                <p class="progress-title">Active Plan:</p>
-                <data class="progress-data breaker">Unset</data>
-              </div>
-            </li>
-          </ul>
-
+          {{#if phoneNumber}}
+            <ul>
+              <li class="progress-item" style="width: 100%; margin-top:10px;">
+                <div class="progress-label">
+                  <p class="progress-title">Name:</p>
+                  <data class="progress-data breaker">
+                    {{firstName}}
+                    {{lastName}}
+                  </data>
+                </div>
+              </li>
+              <li class="progress-item" style="width: 100%; margin-top:10px;">
+                <div class="progress-label">
+                  <p class="progress-title">Phone Number:</p>
+                  <data class="progress-data breaker">{{phoneNumber}}</data>
+                </div>
+              </li>
+              <li class="progress-item" style="width: 100%; margin-top:10px;">
+                <div class="progress-label start">
+                  <p class="progress-title">Wallet ID:</p>
+                  <data
+                    class="progress-data breaker"
+                    style="word-wrap:break-all;"
+                  >{{walletId}}</data>
+                </div>
+              </li>
+              <li class="progress-item" style="width: 100%; margin-top:10px;">
+                <div class="progress-label">
+                  <p class="progress-title">Country:</p>
+                  <data class="progress-data breaker"> {{country}} </data>
+                </div>
+              </li>
+              <li class="progress-item" style="width: 100%; margin-top:10px;">
+                <div class="progress-label">
+                  <p class="progress-title">Active Plan:</p>
+                  <data class="progress-data breaker"> {{activePlan}} </data>
+                </div>
+              </li>
+            </ul>
+          {{else}}<ul>
+              <li class="progress-item" style="width: 100%; margin-top:10px;">
+                <div class="progress-label">
+                  <p class="progress-title">Name:</p>
+                  <data class="progress-data breaker">
+                    {{firstName}}
+                    {{lastName}}
+                  </data>
+                </div>
+              </li>
+              <li class="progress-item" style="width: 100%; margin-top:10px;">
+                <div class="progress-label">
+                  <p class="progress-title">Phone Number:</p>
+                  <data class="progress-data breaker">Unset</data>
+                </div>
+              </li>
+              <li class="progress-item" style="width: 100%; margin-top:10px;">
+                <div class="progress-label start">
+                  <p class="progress-title">Wallet ID:</p>
+                  <data
+                    class="progress-data breaker"
+                    style="word-wrap:break-all;"
+                  >Unset</data>
+                </div>
+              </li>
+              <li class="progress-item" style="width: 100%; margin-top:10px;">
+                <div class="progress-label">
+                  <p class="progress-title">Country:</p>
+                  <data class="progress-data breaker">Unset</data>
+                </div>
+              </li>
+              <li class="progress-item" style="width: 100%; margin-top:10px;">
+                <div class="progress-label">
+                  <p class="progress-title">Active Plan:</p>
+                  <data class="progress-data breaker">Unset</data>
+                </div>
+              </li>
+            </ul>
+          {{/if}}
         </div>
       </div>
     </section>
