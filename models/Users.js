@@ -18,6 +18,14 @@ const UsersSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    desc: {
+      type: String,
+      default: 'Account Created'
+    },
+    amount: {
+      type: String,
+      default: '0.00'
+    }
   },
   {
     timestamps: true,

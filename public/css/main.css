@@ -387,3 +387,14 @@ footer .flex {
   }
 
 }
+
+/* Mobile */
+@media only screen and (max-width: 400px) {
+
+
+
+  .form-container {
+    padding: inherit 30px;
+  }
+
+}
