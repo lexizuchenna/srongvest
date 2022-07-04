@@ -6,10 +6,6 @@
  * copyright 2022 codewithsadee
  */
 
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
-
 :root {
   /**
      * colors
@@ -1144,4 +1140,8 @@ body {
 .breaker {
   word-break: break-all;
   width: 70%;
+}
+
+.breaker2 {
+  width: 30%;
 }

@@ -16,11 +16,16 @@ connectDB();
 
 app.use(express.urlencoded({ extended: false }));
 
+const {formatDate} = require('./middlewares/hbsHelper')
+
 app.engine(
   ".hbs",
   engine({
     defaultLayout: "main",
     extname: "hbs",
+    helpers: {
+      formatDate
+    }
   })
 );
 

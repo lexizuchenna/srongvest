@@ -219,15 +219,15 @@
 
             <div class="card-input">
               <label for="task-1" class="task-label">
-                Draft the new contract document for sales team
+                {{openDesc}}
               </label>
             </div>
 
-            <div class="card-badge cyan radius-pill">Today 10pm</div>
+            <div class="card-badge cyan radius-pill">{{formatDate '2022-02-19'}}</div>
             <ul class="card-meta-list">
               <li>
                 <div class="meta-box icon-box">
-                  <data value="21">21</data>
+                  <data value="{{openAmt}}">$ {{openAmt}}</data>
                 </div>
               </li>
             </ul>

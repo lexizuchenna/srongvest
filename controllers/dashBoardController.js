@@ -5,9 +5,20 @@ const Profile = require("../models/Profile");
 
 const viewDashboard = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
+  const users = await Users.findOne({ email: req.user.email });
   const name = req.user.firstName;
+  const openDesc = req.user.desc;
+  const openAmt = users.amount;
+  const openDate = users.createdAt;
   const activePlan = profile.plan;
-  res.render("dashboard/dashboardHome", { layout: "dash", name, activePlan });
+  res.render("dashboard/dashboardHome", {
+    layout: "dash",
+    name,
+    activePlan,
+    openDate,
+    openDesc,
+    openAmt,
+  });
 };
 const viewFund = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
@@ -26,10 +37,10 @@ const viewProfile = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
   const firstName = req.user.firstName;
   const lastName = req.user.lastName;
-  const phoneNumber = profile.phoneNumber;
-  const walletId = profile.walletId;
-  const country = profile.country;
-  const activePlan = profile.plan;
+  const phoneNumber = profile?.phoneNumber;
+  const walletId = profile?.walletId;
+  const country = profile?.country;
+  const activePlan = profile?.plan;
   console.log(profile);
   res.render("dashboard/dashboardProf", {
     layout: "dash",
