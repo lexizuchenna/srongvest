@@ -10,7 +10,11 @@ const viewDashboard = async (req, res) => {
   const openDesc = req.user.desc;
   const openAmt = users.amount;
   const openDate = users.createdAt;
-  const activePlan = profile.plan;
+  const activePlan = profile.plan.toUpperCase();
+  const profileDesc = profile?.desc;
+  const profileAmt = profile?.amount;
+  const profileDate = profile?.createdAt;
+  console.log(profile.desc);
   res.render("dashboard/dashboardHome", {
     layout: "dash",
     name,
@@ -18,6 +22,10 @@ const viewDashboard = async (req, res) => {
     openDate,
     openDesc,
     openAmt,
+    profile,
+    profileDesc,
+    profileAmt,
+    profileDate,
   });
 };
 const viewFund = async (req, res) => {
@@ -40,7 +48,7 @@ const viewProfile = async (req, res) => {
   const phoneNumber = profile?.phoneNumber;
   const walletId = profile?.walletId;
   const country = profile?.country;
-  const activePlan = profile?.plan;
+  const activePlan = profile?.plan.toUpperCase();
   console.log(profile);
   res.render("dashboard/dashboardProf", {
     layout: "dash",
@@ -50,14 +58,25 @@ const viewProfile = async (req, res) => {
     walletId,
     country,
     activePlan,
+    profile,
   });
 };
 
 // Profile Request
 const sendProfile = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
+  const firstName = req.user.firstName;
+  const lastName = req.user.lastName;
+
   if (profile !== null) {
     return res.redirect("/users/dashboard");
+  } else if (req.body.plan === "Select Plan") {
+    console.log("Must Select Plan");
+    res.render("dashboard/dashboardProf", {
+      layout: "dash",
+      firstName,
+      lastName,
+    });
   } else {
     const userProfile = await Profile.create({
       user: req.user.id,

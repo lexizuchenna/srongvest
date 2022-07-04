@@ -26,6 +26,14 @@ const ProfileSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    desc: {
+      type: String,
+      default: 'Profile Updated'
+    },
+    amount: {
+      type: String,
+      default: '0.00'
+    }
   },
   {
     timestamps: true,

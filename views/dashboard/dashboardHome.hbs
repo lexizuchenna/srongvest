@@ -92,9 +92,7 @@
 
     <p class="article-subtitle">Welcome to SrongVest!</p>
 
-    <!-- 
-        - #HOME
-      -->
+    {{! HOME }}
 
     <section class="home">
 
@@ -202,9 +200,7 @@
       </div>
     </section>
 
-    <!-- 
-        - #TASKS
-      -->
+    {{! Account History }}
 
     <section class="tasks">
 
@@ -223,7 +219,9 @@
               </label>
             </div>
 
-            <div class="card-badge cyan radius-pill">{{formatDate '2022-02-19'}}</div>
+            <div class="card-badge cyan radius-pill">{{formatDate
+                openDate
+              }}</div>
             <ul class="card-meta-list">
               <li>
                 <div class="meta-box icon-box">
@@ -231,6 +229,31 @@
                 </div>
               </li>
             </ul>
+          </div>
+        </li>
+        {{! Profile }}
+        <li class="tasks-item">
+          <div class="card task-card">
+            {{#if profile}}
+              <div class="card-input">
+                <label for="task-1" class="task-label">
+                  {{profileDesc}}
+                </label>
+              </div>
+
+              <div class="card-badge cyan radius-pill">{{formatDate
+                  profileDate
+                }}</div>
+              <ul class="card-meta-list">
+                <li>
+                  <div class="meta-box icon-box">
+                    <data value="{{profileAmt}}">$ {{profileAmt}}</data>
+                  </div>
+                </li>
+              </ul>
+              {{else}}
+              <div></div>
+            {{/if}}
           </div>
         </li>
       </ul>

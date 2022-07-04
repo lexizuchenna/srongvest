@@ -128,15 +128,23 @@
             <div class="form-control" style="width: 100%;">
               <select
                 name="plan"
-                id="plan"
+                id="activePlan"
                 style="width: 100%; padding: 10px; outline:none;"
               >
-                <option value="" name="">Select Plan</option>
+                <option value="Select Plan" name="">Select Plan</option>
                 <option value="Gold" name="Gold">Gold</option>
-                <option value="promo" name="Promo">Promo</option>
+                <option value="Promo" name="Promo">Promo</option>
                 <option value="Silver" name="Silver">Silver</option>
-                <option value="Bronze" name="Promo">Broze</option>
+                <option value="Bronze" name="Promo">Bronze</option>
               </select>
+            </div>
+            <div class="form-control" style="width: 100%;">
+               <input
+                type="text"
+                value="Select Plan To View Amount"
+                readonly
+                id="amount"
+              />
             </div>
             <button class="user-button">Submit</button>
           </form>
@@ -231,3 +239,5 @@
     </section>
   </article>
 </main>
+
+<script src="/js/profile.js"></script>
