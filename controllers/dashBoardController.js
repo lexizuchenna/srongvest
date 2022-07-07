@@ -2,6 +2,7 @@ const Users = require("../models/Users");
 const Ref = require("../models/Referral");
 const bcrypt = require("bcryptjs");
 const Profile = require("../models/Profile");
+const Fund = require("../models/Fund");
 
 const viewDashboard = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
@@ -28,11 +29,37 @@ const viewDashboard = async (req, res) => {
     profileDate,
   });
 };
+
+// Fund Page
 const viewFund = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
   const activePlan = profile.plan;
   res.render("dashboard/dashboardFund", { layout: "dash", activePlan });
 };
+
+// Fund Request
+const sendFund = async (req, res) => {
+  const fund = Fund.findOne({ email: req.user.email });
+
+  const fundData = await Fund.create({
+    firstName: req.user.firstName,
+    user: req.user.id,
+    email: req.user.email,
+    paymentId: req.body.walletId,
+    plan: req.body.plan,
+    amount: req.body.amount,
+  });
+
+  fundData.save();
+  return res.status(201).redirect("/users/fund");
+};
+
+//Funded View
+const viewFunded = async (req, res) => {
+  res.render("dashboard/funded", { layout: "dash" });
+};
+
+// Withdrawal Page
 const viewWithdraw = (req, res) => {
   res.render("dashboard/dashboardWith", { layout: "dash" });
 };
@@ -99,6 +126,8 @@ const viewSetting = (req, res) => {
 module.exports = {
   viewDashboard,
   viewFund,
+  sendFund,
+  viewFunded,
   viewWithdraw,
   viewReferral,
   viewProfile,

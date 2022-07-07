@@ -107,15 +107,17 @@
                   id="activePlan"
                   value={{activePlan}}
                   readonly
+                  name="plan"
                 />
               </div>
               <div class="form-control">
-                <input type="text" id="amount" value="" readonly />
+                <input type="text" id="amount" name="amount" value="" readonly />
               </div>
               <div class="form-control">
                 <input
                   type="text"
                   placeholder="Enter your payment address for verification"
+                  name="walletId"
                 />
               </div>
               <button class="user-button">Proceed with payment</button>

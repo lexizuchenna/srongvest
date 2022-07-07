@@ -89,12 +89,32 @@
         <h2 class="section-title">Fund</h2>
       </div>
       <ul class="class-list">
-        
+        <li class="task-item">
+          <div class="card">
+            <label for="task-1" class="task-label">
+              Make Instant Payment
+            </label>
+            <br />
+            <br />
+            <p>Fundinng request initiated</p>
+            <br />
+            <br />
+            <form id="form" class="fund-form" action="/users/fund">
+              <div class="form-control">
+                <input
+                  type="text"
+                  value="bnb136ns6lfw4zs5hg4n85vdthaad7hq5m4gtkgf23"
+                  readonly
+                  id="address"
+                />
+              </div>
+              <button class="user-button" type="button">Copy Address</button>
+            </form>
+          </div>
+        </li>
       </ul>
-
     </section>
-
   </article>
 </main>
 
-<script src="/js/fund.js"></script>
+<script src="/js/funded.js"></script>

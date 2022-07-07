@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
-const UsersSchema = new mongoose.Schema(
+const FundSchema = new mongoose.Schema(
   {
-    firstName: {
-      type: String,
-      required: true,
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Users",
     },
-    lastName: {
+    firstName: {
       type: String,
       required: true,
     },
@@ -14,19 +14,27 @@ const UsersSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    paymentId: {
+      type: String,
+      required: true,
+    },
+    plan: {
+      type: String,
+      
+    },
     desc: {
       type: String,
-      default: 'Funding Initiated'
+      default: "Funding Initiated",
     },
     amount: {
       type: String,
-    }
+    },
   },
   {
     timestamps: true,
   }
 );
 
-const Users = mongoose.model('Users', UsersSchema)
+const Fund = mongoose.model("Fund", FundSchema);
 
-module.exports = Users
+module.exports = Fund;
