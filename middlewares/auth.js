@@ -1,4 +1,5 @@
 const Profile = require("../models/Profile");
+const Fund = require("../models/Fund");
 
 const isLoggedOut = (req, res, next) => {
   if (req.isAuthenticated()) {
@@ -28,8 +29,19 @@ const isprofileUpdated = async (req, res, next) => {
   next();
 };
 
+// Check if fund is initiated
+const isFunded = async (req, res, next) => {
+  const fund = await Fund.findOne({ email: req.user.email });
+  console.log(fund)
+  if (fund !== null) {
+    return res.status(403).redirect("/users/payment/fund");
+  }
+  next()
+};
+
 module.exports = {
   isLoggedIn,
   isLoggedOut,
   isprofileUpdated,
+  isFunded,
 };

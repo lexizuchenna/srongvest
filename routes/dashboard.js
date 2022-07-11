@@ -12,13 +12,17 @@ const {
   viewSetting,
   sendProfile,
 } = require("../controllers/dashBoardController");
-const { isLoggedOut, isprofileUpdated } = require("../middlewares/auth");
+const {
+  isLoggedOut,
+  isprofileUpdated,
+  isFunded,
+} = require("../middlewares/auth");
 
 router.get("/dashboard", isLoggedOut, isprofileUpdated, viewDashboard);
 
-router.get("/fund", isLoggedOut, isprofileUpdated, viewFund);
-router.post('/fund', isLoggedOut, sendFund)
-router.get('/funded', isLoggedOut, viewFunded)
+router.get("/fund", isLoggedOut, isprofileUpdated, isFunded, viewFund);
+router.post("/fund", isLoggedOut, isFunded, sendFund);
+router.get("/payment/fund", isLoggedOut, viewFunded);
 
 router.get("/withdraw", isLoggedOut, isprofileUpdated, viewWithdraw);
 

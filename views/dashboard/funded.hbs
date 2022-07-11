@@ -101,7 +101,7 @@
             <br />
             <div class="card">
               <p>Account</p>
-              <p>Alexander Uchenna</p>
+              <p class="bold">{{firstName}} {{lastName}}</p>
 
               <br />
               <p>Payment Details</p>
@@ -115,10 +115,11 @@
               <br />
               <br />
               <hr />
-              <p>Amount in USD: <span class="bold">$3,000</span></p>
-              <p>Amount in Bitcoin: <span class="bold">0.29</span></p>
+              <p>Amount in USD: <span class="bold inline">{{amount}}</span></p>
+              <p>Amount in Bitcoin: <span class="bold inline">{{btc}}</span></p>
+              <hr />
             </div>
-            <form id="form" class="fund-form" action="/users/fund">
+            <form id="form" class="fund-form">
               <div class="form-control">
                 <input
                   type="text"
@@ -127,7 +128,12 @@
                   id="address"
                 />
               </div>
-              <button class="user-button" type="button">Copy Address</button>
+              <button
+                class="user-button"
+                type="button"
+                id="copy"
+                value="Copy Address"
+              >Copy Address</button>
             </form>
           </div>
         </li>

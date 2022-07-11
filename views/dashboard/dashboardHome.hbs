@@ -127,7 +127,11 @@
             </div>
 
             <div class="progress-label">
-              <p>$ 10,000</p>
+              {{#if amount}}
+                <p class="bold">$ {{amount}}</p>
+              {{else}}
+                <p>Not funded</p>
+              {{/if}}
             </div>
 
           </li>
@@ -231,6 +235,7 @@
             </ul>
           </div>
         </li>
+
         {{! Profile }}
         <li class="tasks-item">
           <div class="card task-card">
@@ -251,8 +256,34 @@
                   </div>
                 </li>
               </ul>
-              {{else}}
+            {{else}}
               <div></div>
+            {{/if}}
+          </div>
+        </li>
+
+        {{! Fund }}
+        <li class="tasks-item">
+          <div class="card task-card">
+            {{#if fundDate}}           
+              <div class="card-input">
+                <label for="task-1" class="task-label">
+                  {{fundDesc}}
+                </label>
+              </div>
+
+              <div class="card-badge cyan radius-pill">{{formatDate
+                  fundDate
+                }}</div>
+              <ul class="card-meta-list">
+                <li>
+                  <div class="meta-box icon-box">
+                    <data value="{{amount}}">$ {{amount}}</data>
+                  </div>
+                </li>
+              </ul>
+            {{else}}
+              
             {{/if}}
           </div>
         </li>

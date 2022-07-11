@@ -7,11 +7,15 @@ const Fund = require("../models/Fund");
 const viewDashboard = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
   const users = await Users.findOne({ email: req.user.email });
+  const fund = await Fund.findOne({email: req.user.email})
   const name = req.user.firstName;
   const openDesc = req.user.desc;
   const openAmt = users.amount;
   const openDate = users.createdAt;
   const activePlan = profile.plan.toUpperCase();
+  const amount = fund?.amount
+  const fundDesc = fund?.desc
+  const fundDate = fund?.createdAt
   const profileDesc = profile?.desc;
   const profileAmt = profile?.amount;
   const profileDate = profile?.createdAt;
@@ -27,6 +31,9 @@ const viewDashboard = async (req, res) => {
     profileDesc,
     profileAmt,
     profileDate,
+    amount,
+    fundDesc,
+    fundDate,
   });
 };
 
@@ -39,8 +46,6 @@ const viewFund = async (req, res) => {
 
 // Fund Request
 const sendFund = async (req, res) => {
-  const fund = Fund.findOne({ email: req.user.email });
-
   const fundData = await Fund.create({
     firstName: req.user.firstName,
     user: req.user.id,
@@ -51,12 +56,23 @@ const sendFund = async (req, res) => {
   });
 
   fundData.save();
-  return res.status(201).redirect("/users/fund");
+  return res.status(201).redirect("/users/payment/fund");
 };
 
 //Funded View
 const viewFunded = async (req, res) => {
-  res.render("dashboard/funded", { layout: "dash" });
+  const fund = await Fund.findOne({ email: req.user.email });
+  const amount = fund.amount;
+  const btc = amount / 0.003;
+  const firstName = req.user.firstName;
+  const lastName = req.user.lastName;
+  res.render("dashboard/funded", {
+    layout: "dash",
+    amount,
+    btc,
+    firstName,
+    lastName,
+  });
 };
 
 // Withdrawal Page

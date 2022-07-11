@@ -1028,7 +1028,7 @@ body {
   }
 
   .home {
-    grid-template-columns: 1.25fr 0.75fr 1fr;;
+    grid-template-columns: 1.25fr 0.75fr 1fr;
   }
   .prof-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1037,7 +1037,6 @@ body {
   .home .card-wrapper {
     grid-template-columns: 1fr;
   }
-  
 
   .progress-list {
     align-items: flex-end;
@@ -1105,7 +1104,6 @@ body {
   }
 }
 
-
 /* FORM */
 .fund-form {
   max-width: 500px;
@@ -1144,4 +1142,11 @@ body {
 
 .breaker2 {
   width: 30%;
+}
+.bold {
+  font-weight: 600;
+}
+
+p .inline {
+  display: inline;
 }
