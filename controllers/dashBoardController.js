@@ -119,9 +119,8 @@ const requestedWithdrawal = async (req, res) => {
 };
 
 const viewReferral = async (req, res) => {
-  const referral = await Ref.find({email: req.user.email})
-  console.log(referral)
-  res.render("dashboard/dashboardRef", { layout: "dash" });
+  const referral = await Ref.find({refemail: req.user.email})
+  res.render("dashboard/dashboardRef", { layout: "dash", referral });
 };
  
 // View Profile

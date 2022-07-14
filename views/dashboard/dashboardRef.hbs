@@ -92,20 +92,24 @@
         <h2 class="section-title">Referrals</h2>
       </div>
       <ul class="project-list">
-        <li class="project-item">
+        {{#if referral}}
+          {{#each referral}}
+          <li class="project-item">
           <div class="card project-card">
             <h3 class="card-title">
-              <a href="#">Boss leXiZ</a>
+              <a> {{this.refName}} </a>
             </h3>
-            <div class="card-badge red">Pending</div>
+            <div class="card-badge red"> {{this.action}} </div>
             <div class="card-progress-box">
               <div class="progress-label">
                 <span class="progress-title">Amount Received</span>
-                <data class="progress-data" value="75">$ 5</data>
+                <data class="progress-data" value="75">$ {{this.amount}} </data>
               </div>
             </div>
           </div>
         </li>
+          {{/each}}
+        {{/if}}
 
         <li class="project-item">
           <div class="card project-card">
