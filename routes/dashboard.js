@@ -44,5 +44,6 @@ router.get("/profile", isLoggedOut, viewProfile);
 router.post("/profile", isLoggedOut, sendProfile);
 
 router.get("/setting", isLoggedOut, viewSetting);
+router.post()
 
 module.exports = router;

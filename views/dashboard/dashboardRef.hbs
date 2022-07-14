@@ -94,37 +94,24 @@
       <ul class="project-list">
         {{#if referral}}
           {{#each referral}}
-          <li class="project-item">
-          <div class="card project-card">
-            <h3 class="card-title">
-              <a> {{this.refName}} </a>
-            </h3>
-            <div class="card-badge red"> {{this.action}} </div>
-            <div class="card-progress-box">
-              <div class="progress-label">
-                <span class="progress-title">Amount Received</span>
-                <data class="progress-data" value="75">$ {{this.amount}} </data>
+            <li class="project-item">
+              <div class="card project-card">
+                <h3 class="card-title">
+                  <a> {{refName}} </a>
+                </h3>
+                <div class="card-badge red"> {{action}} </div>
+                <div class="card-progress-box">
+                  <div class="progress-label">
+                    <span class="progress-title">Amount Received</span>
+                    <data class="progress-data" value="75">$ {{amount}} </data>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </li>
+            </li>
           {{/each}}
+          {{else}}
+          <h2>You have no referrals</h2>
         {{/if}}
-
-        <li class="project-item">
-          <div class="card project-card">
-            <h3 class="card-title">
-              <a href="#">Boss Me</a>
-            </h3>
-            <div class="card-badge red">Pending</div>
-            <div class="card-progress-box">
-              <div class="progress-label">
-                <span class="progress-title">Amount Received</span>
-                <data class="progress-data" value="75">$ 10</data>
-              </div>
-            </div>
-          </div>
-        </li>
       </ul>
     </section>
   </article>

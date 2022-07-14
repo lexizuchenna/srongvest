@@ -9,6 +9,7 @@ const viewDashboard = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
   const users = await Users.findOne({ email: req.user.email });
   const fund = await Fund.findOne({ email: req.user.email });
+  const referral = await Ref.find({refemail: req.user.email}).lean()
   const name = req.user.firstName;
   const openDesc = req.user.desc;
   const openAmt = users.amount;
@@ -22,6 +23,8 @@ const viewDashboard = async (req, res) => {
   const profileAmt = profile?.amount;
   const profileDate = profile?.createdAt;
   console.log(profile.desc);
+
+  let count = referral.length
   res.render("dashboard/dashboardHome", {
     layout: "dash",
     name,
@@ -37,6 +40,7 @@ const viewDashboard = async (req, res) => {
     amount,
     fundDesc,
     fundDate,
+    count
   });
 };
 
@@ -99,7 +103,7 @@ const withdrawalRequest = async (req, res) => {
   });
 
   withdrawData.save();
-  res.redirect('/users/payment/withdraw')
+  res.redirect("/users/payment/withdraw");
 };
 
 // Withdrawal Request View
@@ -119,10 +123,10 @@ const requestedWithdrawal = async (req, res) => {
 };
 
 const viewReferral = async (req, res) => {
-  const referral = await Ref.find({refemail: req.user.email})
+  const referral = await Ref.find({ refemail: req.user.email }).lean();
   res.render("dashboard/dashboardRef", { layout: "dash", referral });
 };
- 
+
 // View Profile
 const viewProfile = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
@@ -190,6 +194,10 @@ const viewSetting = (req, res) => {
   res.render("dashboard/dashboardSet", { layout: "dash" });
 };
 
+const changePassword = async (req, res) => {
+  
+}
+
 module.exports = {
   viewDashboard,
   viewFund,
@@ -202,4 +210,5 @@ module.exports = {
   viewProfile,
   sendProfile,
   viewSetting,
+  changePassword
 };

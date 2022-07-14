@@ -25,7 +25,7 @@ app.engine(
     extname: "hbs",
     helpers: {
       formatDate
-    }
+    },
   })
 );
 
@@ -42,7 +42,7 @@ app.use(
     store: MongoStore.create({
       mongoUrl: process.env.MONGO_URI,
     }),
-  })
+  }) 
 );
 
 app.use(passport.initialize());
