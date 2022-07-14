@@ -3,6 +3,7 @@ const Ref = require("../models/Referral");
 const bcrypt = require("bcryptjs");
 const Profile = require("../models/Profile");
 const Fund = require("../models/Fund");
+const Withdraw = require("../models/Withdraw");
 
 const viewDashboard = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
@@ -82,13 +83,47 @@ const viewWithdraw = async (req, res) => {
   const users = await Users.findOne({ email: req.user.email });
   const Prof = await Profile.findOne({ email: req.user.email });
   const revenue = users.revenue;
-  let minAmount = Prof.min
+  const minAmount = Prof.min;
+  console.log(Prof.min);
   res.render("dashboard/dashboardWith", { layout: "dash", revenue, minAmount });
 };
-const viewReferral = (req, res) => {
-  res.render("dashboard/dashboardRef", { layout: "dash" });
+
+// Request Withdrawal
+const withdrawalRequest = async (req, res) => {
+  const withdrawData = await Withdraw.create({
+    user: req.user.id,
+    firstName: req.user.firstName,
+    email: req.user.email,
+    amount: req.body.amount,
+    paymentId: req.body.paymentId,
+  });
+
+  withdrawData.save();
+  res.redirect('/users/payment/withdraw')
 };
 
+// Withdrawal Request View
+const requestedWithdrawal = async (req, res) => {
+  const withdraw = await Withdraw.findOne({ email: req.user.email });
+  const firstName = req.user.firstName;
+  const lastName = req.user.lastName;
+  const amount = withdraw?.amount;
+  const address = withdraw?.paymentId;
+  res.render("dashboard/withdrawal", {
+    layout: "dash",
+    firstName,
+    lastName,
+    amount,
+    address,
+  });
+};
+
+const viewReferral = async (req, res) => {
+  const referral = await Ref.find({email: req.user.email})
+  console.log(referral)
+  res.render("dashboard/dashboardRef", { layout: "dash" });
+};
+ 
 // View Profile
 const viewProfile = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
@@ -127,11 +162,6 @@ const sendProfile = async (req, res) => {
       lastName,
     });
   } else {
-    const Prof = await Profile.findOne({ email: req.user.email });
-    let minAmount;
-    if (Prof.plan === "Gold") {
-      minAmount = 50000;
-    }
     const userProfile = await Profile.create({
       user: req.user.id,
       email: req.user.email,
@@ -139,10 +169,20 @@ const sendProfile = async (req, res) => {
       walletId: req.body.walletId,
       country: req.body.country,
       plan: req.body.plan,
-      min: minAmount,
     });
 
     userProfile.save();
+    const Prof = await Profile.findOne({ email: req.user.email });
+    let minAmount;
+    if (Prof.plan === "Gold") {
+      minAmount = 50000;
+    }
+
+    const updateProfile = await Profile.findOneAndUpdate(
+      { email: req.user.email },
+      { min: minAmount },
+      { new: true }
+    );
     return res.status(201).redirect("/users/dashboard");
   }
 };
@@ -157,6 +197,8 @@ module.exports = {
   sendFund,
   viewFunded,
   viewWithdraw,
+  withdrawalRequest,
+  requestedWithdrawal,
   viewReferral,
   viewProfile,
   sendProfile,

@@ -84,67 +84,35 @@
 
 <main>
   <article class="container article">
-
-    <!-- 
-        - #TASKS
-      -->
-
     <section class="tasks">
-
       <div class="section-title-wrapper">
         <h2 class="section-title">Withdrawal</h2>
       </div>
       <ul class="class-list">
         <li class="task-item">
           <div class="card">
-            <label for="task-1" class="task-label" id="min-withdraw">
-              Minimum Withdrawal:
-              {{minAmount}}
-            </label>
-            <div for="task-1" class="task-label">
-              Available Amount:
-              <span style="display: inline;" class="bold">$ {{revenue}} </span>
+            <p>Withdrawal request initiated</p>
+            <br />
+            <br />
+            <div class="card">
+              <p>Account</p>
+              <p class="bold">{{firstName}} {{lastName}}</p>
+
+              <br />
+              <p>Payment Details</p>
+              <p>Payment Address:
+                <span
+                  class="bold"
+                > {{address}} </span></p>
+              <br />
+              <br />
+              <hr />
+              <p>Amount in USD: <span class="bold inline">{{amount}}</span></p>
+              <hr />
             </div>
-            <br />
-            {{#if ers}}
-              {{#each ers}}
-                <div class="card-badge red"> {{this.msg}} </div>
-              {{/each}}
-            {{/if}}
-            <br />
-            <p>Bitly Investment adopt the SSL (Secure Sockets Layer) network
-              security protocol to guarantee a secure connection in all
-              communications with our clients, protect customers during their
-              transactions with the company and keep all customer information
-              private</p>
-            <br />
-            <br />
-            <form
-              class="fund-form"
-              action="/users/withdraw"
-              method="POST"
-            >
-              <div class="form-control">
-                <input
-                  type="text"
-                  placeholder="Enter Amount"
-                  name="amount"
-                />
-              </div>
-              <div class="form-control">
-                <input
-                  type="text"
-                  placeholder="Enter withdrawal payment address"
-                  name="paymentId"
-                />
-              </div>
-              <button class="user-button">Withdraw</button>
-            </form>
           </div>
         </li>
       </ul>
-
     </section>
-
   </article>
 </main>

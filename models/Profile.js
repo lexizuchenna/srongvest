@@ -33,6 +33,9 @@ const ProfileSchema = new mongoose.Schema(
     amount: {
       type: String,
       default: '0.00'
+    },
+    min: {
+      type: String,
     }
   },
   {
