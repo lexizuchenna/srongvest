@@ -20,18 +20,22 @@ const UsersSchema = new mongoose.Schema(
     },
     desc: {
       type: String,
-      default: 'Account Created'
+      default: "Account Created",
     },
     amount: {
       type: String,
-      default: '0.00'
-    }
+      default: "0.00",
+    },
+    revenue: {
+      type: String,
+      default: 0,
+    },
   },
   {
     timestamps: true,
   }
 );
 
-const Users = mongoose.model('Users', UsersSchema)
+const Users = mongoose.model("Users", UsersSchema);
 
-module.exports = Users
+module.exports = Users;

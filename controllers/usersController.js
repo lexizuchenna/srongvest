@@ -28,10 +28,12 @@ const register = async (req, res) => {
     newUser.save();
 
     // Referral
-    if (req.body.ref) {
+    if (req.body.refemail) {
+      const User = await Users.findOne({email: req.body.email})
       const Referral = await Ref.create({
         refName: req.body.firstName,
         refemail: req.body.refemail,
+        user: User.id
       });
       Referral.save();
     }

@@ -7,15 +7,16 @@ const Fund = require("../models/Fund");
 const viewDashboard = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
   const users = await Users.findOne({ email: req.user.email });
-  const fund = await Fund.findOne({email: req.user.email})
+  const fund = await Fund.findOne({ email: req.user.email });
   const name = req.user.firstName;
   const openDesc = req.user.desc;
   const openAmt = users.amount;
+  const revenue = users.revenue;
   const openDate = users.createdAt;
   const activePlan = profile.plan.toUpperCase();
-  const amount = fund?.amount
-  const fundDesc = fund?.desc
-  const fundDate = fund?.createdAt
+  const amount = fund?.amount;
+  const fundDesc = fund?.desc;
+  const fundDate = fund?.createdAt;
   const profileDesc = profile?.desc;
   const profileAmt = profile?.amount;
   const profileDate = profile?.createdAt;
@@ -27,6 +28,7 @@ const viewDashboard = async (req, res) => {
     openDate,
     openDesc,
     openAmt,
+    revenue,
     profile,
     profileDesc,
     profileAmt,
@@ -76,8 +78,12 @@ const viewFunded = async (req, res) => {
 };
 
 // Withdrawal Page
-const viewWithdraw = (req, res) => {
-  res.render("dashboard/dashboardWith", { layout: "dash" });
+const viewWithdraw = async (req, res) => {
+  const users = await Users.findOne({ email: req.user.email });
+  const Prof = await Profile.findOne({ email: req.user.email });
+  const revenue = users.revenue;
+  let minAmount = Prof.min
+  res.render("dashboard/dashboardWith", { layout: "dash", revenue, minAmount });
 };
 const viewReferral = (req, res) => {
   res.render("dashboard/dashboardRef", { layout: "dash" });
@@ -121,6 +127,11 @@ const sendProfile = async (req, res) => {
       lastName,
     });
   } else {
+    const Prof = await Profile.findOne({ email: req.user.email });
+    let minAmount;
+    if (Prof.plan === "Gold") {
+      minAmount = 50000;
+    }
     const userProfile = await Profile.create({
       user: req.user.id,
       email: req.user.email,
@@ -128,6 +139,7 @@ const sendProfile = async (req, res) => {
       walletId: req.body.walletId,
       country: req.body.country,
       plan: req.body.plan,
+      min: minAmount,
     });
 
     userProfile.save();

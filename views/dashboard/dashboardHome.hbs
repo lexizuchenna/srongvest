@@ -192,8 +192,8 @@
         </ul>
 
         <p class="card-title">Revenue</p>
-        <data class="card-price" value="2100">$2,100</data>
-        <p class="card-text">Last Week</p>
+        <data class="card-price" value="2100">$ {{revenue}}</data>
+        <p class="card-text">Refresh every 24hrs</p>
         <div class="divider card-divider"></div>
 
         <ul class="revenue-list">
@@ -265,16 +265,16 @@
         {{! Fund }}
         <li class="tasks-item">
           <div class="card task-card">
-            {{#if fundDate}}           
+            {{#if fundDate}}
               <div class="card-input">
-                <label for="task-1" class="task-label">
+                <label for="fundDesc" class="task-label">
                   {{fundDesc}}
                 </label>
               </div>
 
-              <div class="card-badge cyan radius-pill">{{formatDate
-                  fundDate
-                }}</div>
+              <div class="card-badge cyan radius-pill">
+                {{formatDate fundDate}}
+              </div>
               <ul class="card-meta-list">
                 <li>
                   <div class="meta-box icon-box">
@@ -283,7 +283,7 @@
                 </li>
               </ul>
             {{else}}
-              
+
             {{/if}}
           </div>
         </li>

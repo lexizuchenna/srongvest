@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const RefSchema = new mongoose.Schema(
   {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User" || "Users",
+    },
     refName: {
       type: String,
       required: true,
@@ -16,6 +20,6 @@ const RefSchema = new mongoose.Schema(
   }
 );
 
-const Ref = mongoose.model('Ref', RefSchema)
+const Ref = mongoose.model("Ref", RefSchema);
 
-module.exports = Ref
+module.exports = Ref;
