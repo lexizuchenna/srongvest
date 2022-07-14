@@ -9,7 +9,7 @@ const viewDashboard = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
   const users = await Users.findOne({ email: req.user.email });
   const fund = await Fund.findOne({ email: req.user.email });
-  const referral = await Ref.find({refemail: req.user.email}).lean()
+  const referral = await Ref.find({ refemail: req.user.email }).lean();
   const name = req.user.firstName;
   const openDesc = req.user.desc;
   const openAmt = users.amount;
@@ -24,7 +24,7 @@ const viewDashboard = async (req, res) => {
   const profileDate = profile?.createdAt;
   console.log(profile.desc);
 
-  let count = referral.length
+  let count = referral.length;
   res.render("dashboard/dashboardHome", {
     layout: "dash",
     name,
@@ -40,7 +40,7 @@ const viewDashboard = async (req, res) => {
     amount,
     fundDesc,
     fundDate,
-    count
+    count,
   });
 };
 
@@ -195,8 +195,31 @@ const viewSetting = (req, res) => {
 };
 
 const changePassword = async (req, res) => {
-  
-}
+  const pwd = req.user.password;
+  const salt = await bcrypt.genSalt(10);
+  const hashedPwd = await bcrypt.hash(req.body.newPass, salt);
+  if (req.body.newPass !== req.body.confirmPass) {
+    let ers = [];
+    ers.push({ msg: "Check Passwords" });
+    console.log(ers);
+    res.render("dashboard/dashboardSet", { layout: "dash", ers });
+  } else {
+    bcrypt.compare(req.body.oldPass, pwd, async (err, res) => {
+      if (res) {
+        let ers = [];
+        ers.push("Pasword chnaged");
+        const user = await Users.findOneAndUpdate(
+          { email: req.user.email },
+          { password: hashedPwd },
+          { new: true }
+        );
+        console.log(ers);
+      }
+    });
+
+    res.redirect('/users/setting')
+  }
+};
 
 module.exports = {
   viewDashboard,
@@ -210,5 +233,5 @@ module.exports = {
   viewProfile,
   sendProfile,
   viewSetting,
-  changePassword
+  changePassword,
 };

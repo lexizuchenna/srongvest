@@ -13,6 +13,7 @@ const {
   viewSetting,
   sendProfile,
   requestedWithdrawal,
+  changePassword,
 } = require("../controllers/dashBoardController");
 const {
   isLoggedOut,
@@ -44,6 +45,6 @@ router.get("/profile", isLoggedOut, viewProfile);
 router.post("/profile", isLoggedOut, sendProfile);
 
 router.get("/setting", isLoggedOut, viewSetting);
-router.post()
+router.post('/setting', isLoggedOut, changePassword)
 
 module.exports = router;

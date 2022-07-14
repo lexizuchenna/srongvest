@@ -94,26 +94,26 @@
 
       <div class="card profile-card" style="width: 100%;">
         <div class="profile-card-wrapper">
-          <form class="fund-form" action="" style="width: 100%;">
+          <form class="fund-form" action="/users/setting" method="POST" style="width: 100%;">
             <div class="form-control" style="width: 100%;">
               <input
-                type="text"
+                type="password"
                 placeholder="Enter Old Password"
-                name="phoneNumber"
+                name="oldPass"
               />
             </div>
             <div class="form-control" style="width: 100%;">
               <input
-                type="text"
+                type="password"
                 placeholder="Enter New Password"
-                name="walletAdd"
+                name="newPass"
               />
             </div>
             <div class="form-control" style="width: 100%;">
               <input
-                type="text"
+                type="password"
                 placeholder="Repeat New Password"
-                name="country"
+                name="confirmPass"
               />
             </div>
             <button class="user-button">Change Password</button>
