@@ -14,6 +14,14 @@ const RefSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    status: {
+      type: String,
+      default: 'pending'
+    },
+    amtRecieved: {
+      type: String,
+      default: '0'
+    }
   },
   {
     timestamps: true,
