@@ -99,20 +99,25 @@
                 <h3 class="card-title">
                   <a> {{refName}} </a>
                 </h3>
-                <div class="card-badge red"> {{status}} </div>
+                <div class="card-badge" id="badge" value={{status}}>
+                  {{status}}
+                </div>
                 <div class="card-progress-box">
                   <div class="progress-label">
                     <span class="progress-title">Amount Received</span>
-                    <data class="progress-data" value="75">$ {{amtRecieved}} </data>
+                    <data class="progress-data" value="75">$
+                      {{amtReceived}}
+                    </data>
                   </div>
                 </div>
               </div>
             </li>
           {{/each}}
-          {{else}}
+        {{else}}
           <h2>You have no referrals</h2>
         {{/if}}
       </ul>
     </section>
   </article>
 </main>
+<script src="/js/ref.js"></script>

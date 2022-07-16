@@ -4,7 +4,7 @@ const RefSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User" || "Users",
+      ref: "Users",
     },
     refName: {
       type: String,
@@ -18,7 +18,7 @@ const RefSchema = new mongoose.Schema(
       type: String,
       default: 'pending'
     },
-    amtRecieved: {
+    amtReceived: {
       type: String,
       default: '0'
     }

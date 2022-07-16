@@ -22,7 +22,6 @@ const viewDashboard = async (req, res) => {
   const profileDesc = profile?.desc;
   const profileAmt = profile?.amount;
   const profileDate = profile?.createdAt;
-  console.log(profile.desc);
 
   let count = referral.length;
   res.render("dashboard/dashboardHome", {
@@ -70,7 +69,7 @@ const sendFund = async (req, res) => {
 const viewFunded = async (req, res) => {
   const fund = await Fund.findOne({ email: req.user.email });
   const amount = fund.amount;
-  const btc = amount / 0.003;
+  const btc = amount * 0.003;
   const firstName = req.user.firstName;
   const lastName = req.user.lastName;
   res.render("dashboard/funded", {
@@ -88,7 +87,6 @@ const viewWithdraw = async (req, res) => {
   const Prof = await Profile.findOne({ email: req.user.email });
   const revenue = users.revenue;
   const minAmount = Prof.min;
-  console.log(Prof.min);
   res.render("dashboard/dashboardWith", { layout: "dash", revenue, minAmount });
 };
 
@@ -136,7 +134,6 @@ const viewProfile = async (req, res) => {
   const walletId = profile?.walletId;
   const country = profile?.country;
   const activePlan = profile?.plan.toUpperCase();
-  console.log(profile);
   res.render("dashboard/dashboardProf", {
     layout: "dash",
     firstName,
@@ -158,7 +155,7 @@ const sendProfile = async (req, res) => {
   if (profile !== null) {
     return res.redirect("/users/dashboard");
   } else if (req.body.plan === "Select Plan") {
-    console.log("Must Select Plan");
+    // console.log("Must Select Plan");
     res.render("dashboard/dashboardProf", {
       layout: "dash",
       firstName,
@@ -181,7 +178,7 @@ const sendProfile = async (req, res) => {
       minAmount = 50000;
     }
 
-    const updateProfile = await Profile.findOneAndUpdate(
+    await Profile.findOneAndUpdate(
       { email: req.user.email },
       { min: minAmount },
       { new: true }
@@ -217,7 +214,7 @@ const changePassword = async (req, res) => {
       }
     });
 
-    res.redirect('/users/setting')
+    res.redirect("/users/setting");
   }
 };
 

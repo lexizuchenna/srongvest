@@ -61,17 +61,13 @@ const register = async (req, res) => {
 };
 
 //Login
-const login = passport.authenticate('local', {failureRedirect: '/users/login'})
+const login = passport.authenticate("local", {
+  failureRedirect: "/users/login",
+});
 
 const log = (req, res) => {
-  console.log('works')
-  console.log(req.body)
-  res.redirect('/users/dashboard')
-}
-
-// (passport.authenticate('local', {failureRedirect: '/users/login'}), (req, res) => {
-//   res.redirect('/users/dashboard')
-// })
+  res.redirect("/users/dashboard");
+};
 
 // Logout
 const logout = async (req, res, next) => {
@@ -85,5 +81,5 @@ module.exports = {
   register,
   login,
   logout,
-  log
+  log,
 };
