@@ -9,6 +9,7 @@ const viewDashboard = async (req, res) => {
   const profile = await Profile.findOne({ email: req.user.email });
   const users = await Users.findOne({ email: req.user.email });
   const fund = await Fund.findOne({ email: req.user.email });
+  const withdraw = await Withdraw.findOne({email: req.user.email})
   const referral = await Ref.find({ refemail: req.user.email }).lean();
   const name = req.user.firstName;
   const openDesc = req.user.desc;
@@ -22,6 +23,7 @@ const viewDashboard = async (req, res) => {
   const profileDesc = profile?.desc;
   const profileAmt = profile?.amount;
   const profileDate = profile?.createdAt;
+  const lastWith = withdraw?.amount
 
   let count = referral.length;
   res.render("dashboard/dashboardHome", {
@@ -40,6 +42,7 @@ const viewDashboard = async (req, res) => {
     fundDesc,
     fundDate,
     count,
+    lastWith
   });
 };
 

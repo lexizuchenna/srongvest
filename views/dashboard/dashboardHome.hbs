@@ -149,9 +149,13 @@
           </div>
 
           <div>
-            <data class="card-data" value="21">$ 21,000</data>
+            {{#if lastWith}}
+            <data class="card-data" value="21"> {{lastWith}} </data>
+            {{else}}
+            <data class="card-data" value="21"> 0 </data>
+            {{/if}}
 
-            <p class="card-text">Total Amount Withdrawn</p>
+            <p class="card-text">Last Amount Withdrawn</p>
           </div>
 
         </div>
