@@ -29,11 +29,11 @@ const register = async (req, res) => {
 
     // Referral
     if (req.body.refemail) {
-      const User = await Users.findOne({email: req.body.email})
+      const User = await Users.findOne({ email: req.body.email });
       const Referral = await Ref.create({
         refName: req.body.firstName,
         refemail: req.body.refemail,
-        user: User.id
+        user: User.id,
       });
       Referral.save();
     }
@@ -61,12 +61,17 @@ const register = async (req, res) => {
 };
 
 //Login
-const login = async (req, res, next) => {
-  passport.authenticate("local", {
-    successRedirect: "/users/dashboard",
-    failureRedirect: "/users/login",
-  })(req, res, next);
-};
+const login = passport.authenticate('local', {failureRedirect: '/users/login'})
+
+const log = (req, res) => {
+  console.log('works')
+  console.log(req.body)
+  res.redirect('/users/dashboard')
+}
+
+// (passport.authenticate('local', {failureRedirect: '/users/login'}), (req, res) => {
+//   res.redirect('/users/dashboard')
+// })
 
 // Logout
 const logout = async (req, res, next) => {
@@ -80,4 +85,5 @@ module.exports = {
   register,
   login,
   logout,
+  log
 };

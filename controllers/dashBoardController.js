@@ -208,7 +208,7 @@ const changePassword = async (req, res) => {
       if (res) {
         let ers = [];
         ers.push("Pasword chnaged");
-        const user = await Users.findOneAndUpdate(
+        await Users.findOneAndUpdate(
           { email: req.user.email },
           { password: hashedPwd },
           { new: true }
